@@ -14,10 +14,11 @@ const HeartDiseaseForm = () => {
   const [restECG, setRestECG] = useState("");
   const [stDepression, setStDepression] = useState("");
   const [stSlope, setStSlope] = useState("");
+  const [majorVessels, setMajorVessels] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission
+    
     console.log({
       age,
       sex,
@@ -30,12 +31,14 @@ const HeartDiseaseForm = () => {
       restECG,
       stDepression,
       stSlope,
+      majorVessels,
     });
   };
 
   return (
     <section className={styles.container}>
       <div className={styles.form_wrapper}>
+        <h1 className={styles.heading}>Heart Disease Prediction Model</h1>
         <form onSubmit={onSubmit}>
           <div className={styles.form_control}>
             <label htmlFor="age">Age</label>
@@ -136,9 +139,18 @@ const HeartDiseaseForm = () => {
               onChange={(e) => setStSlope(e.target.value)}
             />
           </div>
+          <div className={styles.form_control}>
+            <label htmlFor="majorVessels">Major Vessels Colored by Fluoroscopy</label>
+            <input
+              type="number"
+              name="majorVessels"
+              value={majorVessels}
+              onChange={(e) => setMajorVessels(e.target.value)}
+            />
+          </div>
 
           <div style={{ display: "flex", justifyContent: "end" }}>
-            <button type="submit">Submit</button>
+            <button type="submit" className={styles.submitButton}>Submit</button>
           </div>
         </form>
       </div>

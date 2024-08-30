@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faHeartbeat, faBrain } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const handleFormClick = (e) => {
+    e.preventDefault();
+    setIsFormOpen(!isFormOpen);
+  };
+
   return (
     <aside className="w-64 bg-gray-800 text-white h-full flex flex-col">
       <div className="p-4 flex items-center">
@@ -16,7 +25,7 @@ const Sidebar = () => {
       </div>
       <ul className="p-4 flex-1">
         <li className="mb-4">
-          <a href="/Profile" className="hover:text-blue-400 ">Profile</a>
+          <a href="/Profile" className="hover:text-blue-400">Profile</a>
         </li>
         <li className="mb-4">
           <a href="/" className="hover:text-blue-400">Dashboard</a>
@@ -27,10 +36,27 @@ const Sidebar = () => {
         <li className="mb-4">
           <a href="#" className="hover:text-blue-400">Nutrition</a>
         </li>
-        <li>
+        <li className="mb-4 cursor-pointer" onClick={handleFormClick}>
+          <div className="flex items-center justify-center">
+            <span className="hover:text-blue-400">Forms</span>
+            <FontAwesomeIcon icon={faChevronDown} className={`transition-transform ${isFormOpen ? 'rotate-180' : ''}`} />
+          </div>
+        </li>
+        {isFormOpen && (
+          <ul className="pl-4">
+            <li className="mb-4 flex items-center">
+              <FontAwesomeIcon icon={faHeartbeat} className="mr-2 text-red-500" />
+              <a href="/heart-disease-form" className="hover:text-blue-400">Heart Disease Form</a>
+            </li>
+            <li className="mb-4 flex items-center">
+              <FontAwesomeIcon icon={faBrain} className="mr-2 text-purple-500" />
+              <a href="/parkinsons-disease-form" className="hover:text-blue-400">Parkinson's Disease Form</a>
+            </li>
+          </ul>
+        )}
+        <li className="mt-8">
           <a href="#" className="hover:text-blue-400">Settings</a>
         </li>
-        
       </ul>
     </aside>
   );
