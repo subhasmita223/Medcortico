@@ -4,6 +4,9 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import LandingPage from './components/LandingPage';
+import HeartDiseaseForm from './components/HeartDiseaseForm/HeartDiseaseForm';
+
+import "./App.css";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -29,10 +32,14 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/heart-disease-form" element={<HeartDiseaseForm />} />
+
         </Routes>
       </Layout>
+      
     </Router>
   );
 };
 
 export default App;
+

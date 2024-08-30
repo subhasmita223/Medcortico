@@ -1,0 +1,78 @@
+.container {
+    display: flex;
+    max-width: 1400px; /* Expanded the form container width */
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+  
+  .form_wrapper form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for better layout */
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .form_control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+  
+  .form_control input {
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #b0c4de;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .form_control label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  .form_image {
+    margin-left: 40px;
+  }
+  
+  .form_image img {
+    width: 400px;
+    height: auto;
+  }
+  
+  button {
+    background-color: #4682b4; /* Light blue button */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4169e1; /* Darker blue on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .form_wrapper form {
+      grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+  }
+  
+  
+  
