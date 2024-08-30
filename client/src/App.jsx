@@ -5,7 +5,8 @@ import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import LandingPage from './components/LandingPage';
 import HeartDiseaseForm from './components/HeartDiseaseForm/HeartDiseaseForm';
-import ParkinsonsDiseaseForm from './components/ParkinsonsDiseaseForm/ParkinsonsDiseaseForm'; // Import the new component
+import ParkinsonsDiseaseForm from './components/ParkinsonsDiseaseForm/ParkinsonsDiseaseForm';
+import DiabetesDiseaseForm from './components/DiabetesDiseaseForm/DiabetesDiseaseForm'; // Import the Diabetes component
 
 import "./App.css";
 
@@ -33,8 +34,9 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/heart-disease-form" element={<HeartDiseaseForm />} />
-          <Route path="/parkinsons-disease-form" element={<ParkinsonsDiseaseForm />} />
+          <Route path="/heart-disease-detection" element={<HeartDiseaseForm />} />
+          <Route path="/parkinsons-disease-detection" element={<ParkinsonsDiseaseForm />} />
+          <Route path="/diabetes-disease-detection" element={<DiabetesDiseaseForm />} /> {/* Add route for Diabetes form */}
         </Routes>
       </Layout>
     </Router>
@@ -42,5 +44,3 @@ const App = () => {
 };
 
 export default App;
-
-

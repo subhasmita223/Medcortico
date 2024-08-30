@@ -149,7 +149,7 @@ const HeartDiseaseForm = () => {
             />
           </div>
 
-          <div style={{ display: "flex", justifyContent: "end" }}>
+          <div className={styles.submitButtonWrapper}>
             <button type="submit" className={styles.submitButton}>Submit</button>
           </div>
         </form>
