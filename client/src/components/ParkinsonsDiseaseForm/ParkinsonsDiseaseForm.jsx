@@ -1,64 +1,92 @@
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { submitParkinsonDiseaseForm, clearError } from '../redux/parkinsonDiseaseSlice';
 import Button from "./Button";
 import styles from "./ParkinsonsDiseaseForm.module.css";
-import { useState } from "react";
 
 const ParkinsonsDiseaseForm = () => {
-  const [mdvpHz1, setMdvpHz1] = useState("");
-  const [mdvpHz2, setMdvpHz2] = useState("");
-  const [mdvpHz3, setMdvpHz3] = useState("");
-  const [mdvpPercent, setMdvpPercent] = useState("");
-  const [mdvpAbs, setMdvpAbs] = useState("");
-  const [mdvp, setMdvp] = useState("");
-  const [jitter, setJitter] = useState("");
-  const [mdvpDB, setMdvpDB] = useState("");
-  const [shimmer, setShimmer] = useState("");
-  const [shimmer2, setShimmer2] = useState("");
-  const [nhr, setNhr] = useState("");
-  const [hnr, setHnr] = useState("");
-  const [rpde, setRpde] = useState("");
-  const [dfa, setDfa] = useState("");
-  const [spread1, setSpread1] = useState("");
-  const [spread2, setSpread2] = useState("");
-  const [d2, setD2] = useState("");
-  const [ppe, setPpe] = useState("");
+  const [formData, setFormData] = useState({
+    mdvpHz1: "",
+    mdvpHz2: "",
+    mdvpHz3: "",
+    mdvpPercent: "",
+    mdvpAbs: "",
+    mdvp: "",
+    jitter: "",
+    mdvpDB: "",
+    shimmer: "",
+    shimmer2: "",
+    nhr: "",
+    hnr: "",
+    rpde: "",
+    dfa: "",
+    spread1: "",
+    spread2: "",
+    d2: "",
+    ppe: ""
+  });
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    
-    console.log({
-      mdvpHz1,
-      mdvpHz2,
-      mdvpHz3,
-      mdvpPercent,
-      mdvpAbs,
-      mdvp,
-      jitter,
-      mdvpDB,
-      shimmer,
-      shimmer2,
-      nhr,
-      hnr,
-      rpde,
-      dfa,
-      spread1,
-      spread2,
-      d2,
-      ppe,
+  const dispatch = useDispatch();
+  const { loading, error, success } = useSelector(state => state.parkinsonDisease);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(submitParkinsonDiseaseForm(formData));
+  };
+
+  useEffect(() => {
+    if (success) {
+      // Reset form on successful submission
+      setFormData({
+        mdvpHz1: "",
+        mdvpHz2: "",
+        mdvpHz3: "",
+        mdvpPercent: "",
+        mdvpAbs: "",
+        mdvp: "",
+        jitter: "",
+        mdvpDB: "",
+        shimmer: "",
+        shimmer2: "",
+        nhr: "",
+        hnr: "",
+        rpde: "",
+        dfa: "",
+        spread1: "",
+        spread2: "",
+        d2: "",
+        ppe: ""
+      });
+    }
+
+    if (error) {
+      // Optionally handle error, e.g., show a notification or reset error state
+      setTimeout(() => {
+        dispatch(clearError());
+      }, 5000);
+    }
+  }, [success, error, dispatch]);
 
   return (
     <section className={styles.container}>
       <div className={styles.form_wrapper}>
         <h1 className={styles.heading}>Parkinson's Disease Prediction Model</h1>
-        <form onSubmit={onSubmit}>
+        {error && <p className={styles.error}>{error}</p>}
+        <form onSubmit={handleSubmit}>
           <div className={styles.form_control}>
             <label htmlFor="mdvpHz1">MDVP (Hz)</label>
             <input
               type="number"
               name="mdvpHz1"
-              value={mdvpHz1}
-              onChange={(e) => setMdvpHz1(e.target.value)}
+              value={formData.mdvpHz1}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -66,8 +94,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvpHz2"
-              value={mdvpHz2}
-              onChange={(e) => setMdvpHz2(e.target.value)}
+              value={formData.mdvpHz2}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -75,8 +103,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvpHz3"
-              value={mdvpHz3}
-              onChange={(e) => setMdvpHz3(e.target.value)}
+              value={formData.mdvpHz3}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -84,8 +112,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvpPercent"
-              value={mdvpPercent}
-              onChange={(e) => setMdvpPercent(e.target.value)}
+              value={formData.mdvpPercent}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -93,8 +121,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvpAbs"
-              value={mdvpAbs}
-              onChange={(e) => setMdvpAbs(e.target.value)}
+              value={formData.mdvpAbs}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -102,8 +130,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvp"
-              value={mdvp}
-              onChange={(e) => setMdvp(e.target.value)}
+              value={formData.mdvp}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -111,8 +139,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="jitter"
-              value={jitter}
-              onChange={(e) => setJitter(e.target.value)}
+              value={formData.jitter}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -120,8 +148,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="mdvpDB"
-              value={mdvpDB}
-              onChange={(e) => setMdvpDB(e.target.value)}
+              value={formData.mdvpDB}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -129,8 +157,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="shimmer"
-              value={shimmer}
-              onChange={(e) => setShimmer(e.target.value)}
+              value={formData.shimmer}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -138,8 +166,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="shimmer2"
-              value={shimmer2}
-              onChange={(e) => setShimmer2(e.target.value)}
+              value={formData.shimmer2}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -147,8 +175,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="nhr"
-              value={nhr}
-              onChange={(e) => setNhr(e.target.value)}
+              value={formData.nhr}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -156,8 +184,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="hnr"
-              value={hnr}
-              onChange={(e) => setHnr(e.target.value)}
+              value={formData.hnr}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -165,8 +193,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="rpde"
-              value={rpde}
-              onChange={(e) => setRpde(e.target.value)}
+              value={formData.rpde}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -174,8 +202,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="dfa"
-              value={dfa}
-              onChange={(e) => setDfa(e.target.value)}
+              value={formData.dfa}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -183,8 +211,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="spread1"
-              value={spread1}
-              onChange={(e) => setSpread1(e.target.value)}
+              value={formData.spread1}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -192,8 +220,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="spread2"
-              value={spread2}
-              onChange={(e) => setSpread2(e.target.value)}
+              value={formData.spread2}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -201,8 +229,8 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="d2"
-              value={d2}
-              onChange={(e) => setD2(e.target.value)}
+              value={formData.d2}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -210,13 +238,15 @@ const ParkinsonsDiseaseForm = () => {
             <input
               type="number"
               name="ppe"
-              value={ppe}
-              onChange={(e) => setPpe(e.target.value)}
+              value={formData.ppe}
+              onChange={handleChange}
             />
           </div>
 
           <div style={{ display: "flex", justifyContent: "end" }}>
-            <button type="submit" className={styles.submitButton}>Submit</button>
+            <Button type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Submit"}
+            </Button>
           </div>
         </form>
       </div>
@@ -225,3 +255,4 @@ const ParkinsonsDiseaseForm = () => {
 };
 
 export default ParkinsonsDiseaseForm;
+

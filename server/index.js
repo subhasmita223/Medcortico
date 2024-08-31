@@ -4,6 +4,8 @@ import cors from 'cors';
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoutes.js'
 import doctorRoutes from './routes/doctorRoutes.js';
+import heartRoutes from './routes/heartRoutes.js';
+import parkinsonRoutes from './routes/parkinsonRoutes.js';
 import errorHandler from "./middlewares/errorHandler.js";
 dotenv.config();
 
@@ -20,6 +22,8 @@ connectDB();
 //Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/doctors', doctorRoutes);
+app.use('/api',heartRoutes)
+app.use('/api',parkinsonRoutes)
 // Serve static files (profile images)
 app.use('/profileImages', express.static('upload/profileImages'));
 

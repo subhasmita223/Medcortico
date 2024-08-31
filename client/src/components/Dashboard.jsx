@@ -65,7 +65,7 @@ const Dashboard = () => {
       <header className="text-center mb-4 md:mb-8">
         <h1 className="text-2xl md:text-3xl font-bold">Health Tracking Dashboard</h1>
       </header>
-
+       
       
       <section className="mb-6 flex flex-col md:flex-row items-center bg-white shadow-md rounded-lg p-4">
         <img
