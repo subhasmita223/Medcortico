@@ -9,7 +9,6 @@ import Testimonials from "./landing/Testimonials";
 const LandingPage = () => {
   return (
     <>
-  
       <div className="max-w-7xl mx-auto pt-20 px-6">
         <HeroSection />
         <FeatureSection />
