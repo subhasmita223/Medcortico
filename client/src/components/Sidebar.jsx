@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faHeartbeat, faBrain } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faHeartbeat, faBrain, faSyringe, faVial } from '@fortawesome/free-solid-svg-icons';
 
 const Sidebar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -28,7 +28,7 @@ const Sidebar = () => {
           <a href="/Profile" className="hover:text-blue-400">Profile</a>
         </li>
         <li className="mb-4">
-          <a href="/" className="hover:text-blue-400">Dashboard</a>
+          <a href="/Dashboard" className="hover:text-blue-400">Dashboard</a>
         </li>
         <li className="mb-4">
           <a href="#" className="hover:text-blue-400">Activity</a>
@@ -38,19 +38,24 @@ const Sidebar = () => {
         </li>
         <li className="mb-4 cursor-pointer" onClick={handleFormClick}>
           <div className="flex items-center justify-center">
-            <span className="hover:text-blue-400">Forms</span>
+          
+            <span className="hover:text-blue-400">Disease Detection System</span>
             <FontAwesomeIcon icon={faChevronDown} className={`transition-transform ${isFormOpen ? 'rotate-180' : ''}`} />
           </div>
         </li>
         {isFormOpen && (
           <ul className="pl-4">
-            <li className="mb-4 flex items-center">
+            <li className="mb-4 flex items-center justify-start">
               <FontAwesomeIcon icon={faHeartbeat} className="mr-2 text-red-500" />
-              <a href="/heart-disease-form" className="hover:text-blue-400">Heart Disease Form</a>
+              <a href="/heart-disease-detection" className="hover:text-blue-400">Heart Disease Detection</a>
             </li>
-            <li className="mb-4 flex items-center">
+            <li className="mb-4 flex items-center justify-evenly">
               <FontAwesomeIcon icon={faBrain} className="mr-2 text-purple-500" />
-              <a href="/parkinsons-disease-form" className="hover:text-blue-400">Parkinson's Disease Form</a>
+              <a href="/parkinsons-disease-detection" className="hover:text-blue-400">Parkinson's Disease Detection</a>
+            </li>
+            <li className="mb-4 flex items-space-between">
+              <FontAwesomeIcon icon={faSyringe} className="mr-2 text-blue-500" />
+              <a href="/diabetes-disease-detection" className="hover:text-blue-400">Diabetes Disease Detection</a>
             </li>
           </ul>
         )}
