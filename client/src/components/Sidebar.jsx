@@ -28,7 +28,7 @@ const Sidebar = () => {
           <a href="/Profile" className="hover:text-blue-400">Profile</a>
         </li>
         <li className="mb-4">
-          <a href="/" className="hover:text-blue-400">Dashboard</a>
+          <a href="/Dashboard" className="hover:text-blue-400">Dashboard</a>
         </li>
         <li className="mb-4">
           <a href="#" className="hover:text-blue-400">Activity</a>
