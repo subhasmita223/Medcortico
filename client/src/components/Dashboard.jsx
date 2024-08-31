@@ -130,7 +130,7 @@ const Dashboard = () => {
 
         <section className="mb-6 flex flex-col md:flex-row items-center bg-white shadow-md rounded-lg p-4">
           <img
-            src="https://via.placeholder.com/100"
+            src="https://i.pinimg.com/564x/9f/93/ae/9f93ae8f39417cd575e735bf5f1b1505.jpg"
             alt="User Profile"
             className="w-24 h-24 rounded-full border-2 border-gray-300"
           />
