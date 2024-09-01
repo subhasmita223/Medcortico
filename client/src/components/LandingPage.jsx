@@ -6,6 +6,7 @@ import Footer from "./landing/Footer";
 import Pricing from "./landing/Pricing";
 import Testimonials from "./landing/Testimonials";
 import Login from './login/Login.jsx'; // Import your Login component
+import Navbar from './Navbar.jsx'; // Import the Navbar component
 
 const LandingPage = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -20,6 +21,8 @@ const LandingPage = () => {
 
   return (
     <>
+      <Navbar /> {/* Add Navbar here */}
+
       <div className={`max-w-7xl mx-auto pt-20 px-6 ${isLoginOpen ? 'filter blur-sm' : ''}`}>
         <HeroSection />
         <FeatureSection />
@@ -31,7 +34,7 @@ const LandingPage = () => {
 
       {isLoginOpen && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 shadow-lg w-full max-w-md mx-auto">
+          <div className="bg-white rounded-lg p-8 shadow-lg w-full max-w-md mx-auto relative">
             <Login />
             <button
               onClick={handleCloseLogin}
