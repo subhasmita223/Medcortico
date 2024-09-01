@@ -17,6 +17,8 @@
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.9",
     "@reduxjs/toolkit": "^2.2.7",
+    "@stripe/react-stripe-js": "^2.8.0",
+    "@stripe/stripe-js": "^4.4.0",
     "axios": "^1.7.5",
     "chart.js": "^4.4.4",
     "flowbite-react": "^0.10.1",
