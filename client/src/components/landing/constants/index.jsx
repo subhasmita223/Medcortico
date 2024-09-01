@@ -135,7 +135,7 @@ export const checklistItems = [
 export const pricingOptions = [
   {
     title: "Basic",
-    price: "$0",
+    price: "Rs 0",
     features: [
       "AI-driven symptom analysis",
       "Basic diagnosis and recommendations",
@@ -145,7 +145,7 @@ export const pricingOptions = [
   },
   {
     title: "Standard",
-    price: "$29.99",
+    price: "Rs 299.99",
     features: [
       "Advanced diagnostics with personalized recommendations",
       "Real-time monitoring and alerts",
@@ -155,7 +155,7 @@ export const pricingOptions = [
   },
   {
     title: "Premium",
-    price: "$49.99",
+    price: "Rs 499.99",
     features: [
       "Unlimited consultations with top specialists",
       "Detailed health analytics and progress tracking",

@@ -17,7 +17,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex-1 p-4 md:p-6">
+    <div className="flex-1 p-4 md:p-6 ml-[150px]">
       <div>
         <header className="text-center mb-4 md:mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">User Profile</h1>
@@ -41,21 +41,21 @@ const Profile = () => {
             <h2 className="text-lg md:text-xl font-semibold mb-2">
               Total Steps
             </h2>
-            <p className="text-2xl md:text-4xl font-bold">150,000</p>
+            <p className="text-2xl md:text-4xl font-bold">0</p>
           </div>
 
           <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
             <h2 className="text-lg md:text-xl font-semibold mb-2">
               Total Calories
             </h2>
-            <p className="text-2xl md:text-4xl font-bold">35,000</p>
+            <p className="text-2xl md:text-4xl font-bold">0</p>
           </div>
 
           <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
             <h2 className="text-lg md:text-xl font-semibold mb-2">
               Total Distance
             </h2>
-            <p className="text-2xl md:text-4xl font-bold">1200 km</p>
+            <p className="text-2xl md:text-4xl font-bold">0</p>
           </div>
         </section>
 

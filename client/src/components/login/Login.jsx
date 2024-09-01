@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   return (
-    <div className={`min-h-screen flex justify-center items-center ${isFormOpen ? 'backdrop-blur-sm' : ''}`}>
+    <div className={`min-h-screen flex justify-center items-center ${isFormOpen ? '' : ''}`}>
       {isFormOpen && (
         <div
           className="bg-[#92dd90] rounded-2xl flex max-w-3xl p-5 items-center"

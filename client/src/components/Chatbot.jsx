@@ -5,27 +5,27 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Link } from "react-router-dom";
 
 const historicalDataDiabetes = [
-    {
-      pregnancies: 2,
-      glucose: 130,
-      bloodPressure: 70,
-      skinThickness: 20,
-      insulin: 15,
-      bmi: 25.5,
-      diabetesPedigreeFunction: 0.5,
-      age: 45,
-    },
-    {
-      pregnancies: 1,
-      glucose: 120,
-      bloodPressure: 65,
-      skinThickness: 18,
-      insulin: 14,
-      bmi: 24.0,
-      diabetesPedigreeFunction: 0.4,
-      age: 50,
-    },
-  ];
+  {
+    pregnancies: 2,
+    glucose: 130,
+    bloodPressure: 70,
+    skinThickness: 20,
+    insulin: 15,
+    bmi: 25.5,
+    diabetesPedigreeFunction: 0.5,
+    age: 45,
+  },
+  {
+    pregnancies: 1,
+    glucose: 120,
+    bloodPressure: 65,
+    skinThickness: 18,
+    insulin: 14,
+    bmi: 24.0,
+    diabetesPedigreeFunction: 0.4,
+    age: 50,
+  },
+];
 
 const historicalDataHeart = [
   {
@@ -160,7 +160,16 @@ function Chatbot({ currentData }) {
   }, [currentData]);
 
   return (
+
     <div style={{ maxWidth: "600px", margin: "0 auto", fontFamily: "Arial, sans-serif" }}>
+      <p className="font-bold">
+        <div className="text-xl">RECOMMENDED DOCTORS</div>
+        <button><Link to='/doctor1' className="">1. Dr. Sarah Johnson</Link></button>
+        <br/>
+        <br/>
+        <button><Link to='/doctor2'>2. Dr. Aryan Patel</Link></button>
+      </p>
+        <br/>
       <div
         className="chat-window"
         style={{
@@ -204,10 +213,7 @@ function Chatbot({ currentData }) {
             )}
           </div>
         ))}
-        <p>
-        <Link to='/doctor1'>Dr. Sarah Johnson</Link>
-        <Link to='/doctor2'>Dr. Aryan Patel</Link>
-        </p>
+
       </div>
 
     </div>

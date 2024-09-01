@@ -12,7 +12,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="w-64 bg-gray-800 text-white h-full flex flex-col">
+    <aside className="w-64 fixed bg-gray-800 text-white h-full flex flex-col">
       <div className="p-4 flex items-center">
         <img
           src="https://i.pinimg.com/564x/9f/93/ae/9f93ae8f39417cd575e735bf5f1b1505.jpg"
@@ -80,6 +80,9 @@ const Sidebar = () => {
         )}
         <li className="mb-4">
           <Link to="/Appointment" className="hover:text-blue-400">Appointment</Link>
+        </li>
+        <li className="mt-4">
+          <Link to="/Settings" className="hover:text-blue-400">Payment</Link>
         </li>
         <li className="mt-4">
           <Link to="/Settings" className="hover:text-blue-400">Settings</Link>

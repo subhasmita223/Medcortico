@@ -15,7 +15,7 @@ const DoctorProfile1 = () => {
 
   const handleBookAppointment = () => {
     // Navigate to the Appointment Page
-    navigate('/book-appointment');
+    navigate('/payments');
   };
 
   return (

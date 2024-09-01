@@ -121,7 +121,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className=" w-full h-screen overflow-y-auto bg-gray-100">
+    <div className="h-screen overflow-y-auto bg-gray-100 ml-[150px]">
       <div className="flex-1 p-4 md:p-6">
         <header className="text-center mb-4 md:mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">Health Tracking Dashboard</h1>
