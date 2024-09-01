@@ -3,14 +3,26 @@ import axios from 'axios';
 
 // Async thunk to submit the heart disease form
 export const submitHeartDiseaseForm = createAsyncThunk(
-  'heartDisease/submitForm',
+  'heartDisease/submitHeartDiseaseForm',
   async (formData, { rejectWithValue }) => {
+    const token = getState().auth.token;
     try {
-      const response = await axios.post('http://localhost:4000/api/heart-disease', formData);
+      const response = await axios.post('http://localhost:4000/api/heart-disease', formData,
+        {
+            headers:{
+                'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            }
+        }
+      );
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+        if (error.response && error.response.data) {
+          return rejectWithValue(error.response.data);
+        } else {
+          return rejectWithValue({ error: 'Network Error or Server not responding' });
+        }
+      }
   }
 );
 

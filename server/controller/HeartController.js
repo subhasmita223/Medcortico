@@ -1,7 +1,7 @@
 
 
 import HeartDisease from '../models/Heart.js'
-export const createHeartDiseaseRecord = async (req, res) => {
+export const submitHeartDiseaseForm = async (req, res) => {
     try {
         const { age, sex, chestPain, restingBP, cholesterol, fastingBS, maxHR, exerciseAngina, restECG, stDepression, stSlope, majorVessels } = req.body;
         const userId = req.user.id;
@@ -23,7 +23,7 @@ export const createHeartDiseaseRecord = async (req, res) => {
         });
 
         const savedRecord = await newRecord.save();
-        res.status(201).json(savedRecord);
+        res.status(201).json({ message: 'Data saved successfully', data: savedRecord });
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Internal Server Error');

@@ -1,43 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./DiabetesDiseaseForm.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { submitDiabetesDiseaseForm, clearError } from "../redux/diabetesDiseaseSlice";
 
 const DiabetesDiseaseForm = () => {
-  const [pregnancies, setPregnancies] = useState("");
-  const [glucose, setGlucose] = useState("");
-  const [bloodPressure, setBloodPressure] = useState("");
-  const [skinThickness, setSkinThickness] = useState("");
-  const [insulin, setInsulin] = useState("");
-  const [bmi, setBmi] = useState("");
-  const [diabetesPedigree, setDiabetesPedigree] = useState("");
-  const [age, setAge] = useState("");
+  const dispatch = useDispatch();
+  const { loading, error, success } = useSelector((state) => state.diabetesDisease);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    
-    console.log({
-      pregnancies,
-      glucose,
-      bloodPressure,
-      skinThickness,
-      insulin,
-      bmi,
-      diabetesPedigree,
-      age,
+  const [formData, setFormData] = useState({
+    pregnancies: "",
+    glucose: "",
+    bloodPressure: "",
+    skinThickness: "",
+    insulin: "",
+    bmi: "",
+    diabetesPedigree: "",
+    age: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(submitDiabetesDiseaseForm(formData));
+  };
+
+  useEffect(() => {
+    if (success) {
+      // Reset form on successful submission
+      setFormData({
+        pregnancies: "",
+        glucose: "",
+        bloodPressure: "",
+        skinThickness: "",
+        insulin: "",
+        bmi: "",
+        diabetesPedigree: "",
+        age: "",
+      });
+    }
+    if (error) {
+      // Optionally handle error, e.g., show a notification or reset error state
+      setTimeout(() => {
+        dispatch(clearError());
+      }, 5000);
+    }
+  }, [success, error, dispatch]);
 
   return (
     <section className={styles.container}>
       <div className={styles.form_wrapper}>
         <h1 className={styles.heading}>Diabetes Detection Model</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className={styles.form_control}>
             <label htmlFor="pregnancies">Number of Pregnancies</label>
             <input
               type="number"
               name="pregnancies"
-              value={pregnancies}
-              onChange={(e) => setPregnancies(e.target.value)}
+              value={formData.pregnancies}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -45,8 +72,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="glucose"
-              value={glucose}
-              onChange={(e) => setGlucose(e.target.value)}
+              value={formData.glucose}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -54,8 +81,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="bloodPressure"
-              value={bloodPressure}
-              onChange={(e) => setBloodPressure(e.target.value)}
+              value={formData.bloodPressure}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -63,8 +90,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="skinThickness"
-              value={skinThickness}
-              onChange={(e) => setSkinThickness(e.target.value)}
+              value={formData.skinThickness}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -72,8 +99,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="insulin"
-              value={insulin}
-              onChange={(e) => setInsulin(e.target.value)}
+              value={formData.insulin}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -81,8 +108,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="bmi"
-              value={bmi}
-              onChange={(e) => setBmi(e.target.value)}
+              value={formData.bmi}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -90,8 +117,8 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="diabetesPedigree"
-              value={diabetesPedigree}
-              onChange={(e) => setDiabetesPedigree(e.target.value)}
+              value={formData.diabetesPedigree}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form_control}>
@@ -99,15 +126,19 @@ const DiabetesDiseaseForm = () => {
             <input
               type="number"
               name="age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              value={formData.age}
+              onChange={handleChange}
             />
           </div>
 
           <div style={{ display: "flex", justifyContent: "end" }}>
-            <button type="submit" className={styles.submitButton}>Submit</button>
+            <button type="submit" className={styles.submitButton} disabled={loading}>
+              Submit
+            </button>
           </div>
         </form>
+        {error && <div className={styles.error}>{error}</div>}
+        {success && <div className={styles.success}>Form submitted successfully!</div>}
       </div>
     </section>
   );

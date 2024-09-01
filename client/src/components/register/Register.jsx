@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Register.css'
 import { registerUser } from '../redux/authSlice';
-
+import { Link } from 'react-router-dom';
 const Register = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -59,7 +59,7 @@ const Register = () => {
           <label>Profile Image</label>
           <input type="file" onChange={(e) => setProfileImage(e.target.files[0])} />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit"><Link to='/dashboard'>Register</Link></button>
       </form>
       {auth.error && <p>{auth.error}</p>}
     </div>

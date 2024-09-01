@@ -1,6 +1,6 @@
 import video1 from "../landing/assets/video4.mp4";
 import video2 from "../landing/assets/video6.mp4";
-
+import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <div className="flex flex-col items-center mt-6 lg:mt-20">
@@ -17,12 +17,13 @@ const HeroSection = () => {
       Stay ahead with smarter diagnostics and streamlined patient management—healthcare, redefined.
       </p>
       <div className="flex justify-center my-10">
-        <a
+        <Link
+        to='/login'
           href="#"
           className="bg-gradient-to-r from-blue-400 to-violet-800 py-3 px-4 mx-3 rounded-md"
         >
           Start for free
-        </a>
+        </Link>
         <a href="#" className="py-3 px-4 mx-3 rounded-md border">
           Documentation
         </a>

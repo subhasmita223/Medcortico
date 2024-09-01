@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../redux/authSlice';
+import { loginUser } from '../redux/authSlice';
+import LandingPage from '../LandingPage';
 import { Link } from 'react-router-dom';
 import './Login.css'
 
@@ -35,7 +36,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit"><Link to='/dashboard'>Login</Link></button>
         </form>
         <Link to='/register'><button>Register</button></Link>
         

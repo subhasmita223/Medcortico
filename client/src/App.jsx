@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
 import Profile from './components/Profile';
 import LandingPage from './components/LandingPage';
 import HeartDiseaseForm from './components/HeartDiseaseForm/HeartDiseaseForm';
@@ -30,6 +32,8 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/heart-disease-detection" element={<HeartDiseaseForm />} />

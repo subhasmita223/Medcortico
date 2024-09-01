@@ -46,7 +46,8 @@ const HeartDiseaseForm = () => {
         <h1 className={styles.heading}>Heart Disease Prediction Model</h1>
         {error && (
           <div className={styles.error}>
-            <p>{error}</p>
+            {/* If error is an object, access a specific property like error.message */}
+            <p>{typeof error === 'string' ? error : error.message || 'An error occurred'}</p>
             <button onClick={handleClearError}>Clear Error</button>
           </div>
         )}

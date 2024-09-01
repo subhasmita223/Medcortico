@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faHeartbeat, faBrain, faSyringe, faVial } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
@@ -25,16 +25,16 @@ const Sidebar = () => {
       </div>
       <ul className="p-4 flex-1">
         <li className="mb-4">
-          <a href="/Profile" className="hover:text-blue-400">Profile</a>
+          <Link to="/Profile" className="hover:text-blue-400">Profile</Link>
         </li>
         <li className="mb-4">
-          <a href="/Dashboard" className="hover:text-blue-400">Dashboard</a>
+          <Link to="/Dashboard" className="hover:text-blue-400">Dashboard</Link>
         </li>
         <li className="mb-4">
-          <a href="#" className="hover:text-blue-400">Activity</a>
+          <Link to="#" className="hover:text-blue-400">Activity</Link>
         </li>
         <li className="mb-4">
-          <a href="#" className="hover:text-blue-400">Nutrition</a>
+          <Link to="#" className="hover:text-blue-400">Nutrition</Link>
         </li>
         <li className="mb-4 cursor-pointer" onClick={handleFormClick}>
           <div className="flex items-center justify-center">
@@ -47,20 +47,20 @@ const Sidebar = () => {
           <ul className="pl-4">
             <li className="mb-4 flex items-center justify-start">
               <FontAwesomeIcon icon={faHeartbeat} className="mr-2 text-red-500" />
-              <a href="/heart-disease-detection" className="hover:text-blue-400">Heart Disease Detection</a>
+              <Link to="/heart-disease-detection" className="hover:text-blue-400">Heart Disease Detection</Link>
             </li>
             <li className="mb-4 flex items-center justify-evenly">
               <FontAwesomeIcon icon={faBrain} className="mr-2 text-purple-500" />
-              <a href="/parkinsons-disease-detection" className="hover:text-blue-400">Parkinson's Disease Detection</a>
+              <Link to="/parkinsons-disease-detection" className="hover:text-blue-400">Parkinson's Disease Detection</Link>
             </li>
             <li className="mb-4 flex items-space-between">
               <FontAwesomeIcon icon={faSyringe} className="mr-2 text-blue-500" />
-              <a href="/diabetes-disease-detection" className="hover:text-blue-400">Diabetes Disease Detection</a>
+              <Link to="/diabetes-disease-detection" className="hover:text-blue-400">Diabetes Disease Detection</Link>
             </li>
           </ul>
         )}
         <li className="mt-8">
-          <a href="#" className="hover:text-blue-400">Settings</a>
+          <Link to="#" className="hover:text-blue-400">Settings</Link>
         </li>
       </ul>
     </aside>

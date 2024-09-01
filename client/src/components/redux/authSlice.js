@@ -8,6 +8,7 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (formDat
       const response = await axios.post('http://localhost:4000/api/auth/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          
         },
         
       });
