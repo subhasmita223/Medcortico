@@ -42,15 +42,15 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route
-            path="/heart-disease-detection"
+            path="/HeartDiseaseForm"
             element={<HeartDiseaseForm />}
           />
           <Route
-            path="/parkinsons-disease-detection"
+            path="/ParkinsonsDiseaseForm"
             element={<ParkinsonsDiseaseForm />}
           />
           <Route
-            path="/diabetes-disease-detection"
+            path="/DiabetesDiseaseForm"
             element={<DiabetesDiseaseForm />}
           />
         </Routes>
