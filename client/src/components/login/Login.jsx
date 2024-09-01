@@ -11,6 +11,9 @@ const Login = () => {
   const auth = useSelector((state) => state.auth);
   const [isFormOpen, setIsFormOpen] = useState(true); // State to control form visibility
 
+  // Assume the sidebar width is 16rem (width-64 in Tailwind)
+  const sidebarWidth = '8rem';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUser({ email, password }));
@@ -19,11 +22,14 @@ const Login = () => {
   return (
     <div className={`min-h-screen flex justify-center items-center ${isFormOpen ? 'backdrop-blur-sm' : ''}`}>
       {isFormOpen && (
-        <div className="bg-[#92dd90]  rounded-2xl flex max-w-3xl p-5 items-center">
+        <div
+          className="bg-[#92dd90] rounded-2xl flex max-w-3xl p-5 items-center"
+          style={{ marginLeft: sidebarWidth }} // Dynamic margin-left based on sidebar width
+        >
           <div className="md:w-1/2 px-8">
             <h2 className="font-bold text-3xl text-[#002D74]">Login</h2>
             <p className="text-sm mt-4 text-[#002D74]">If you are already a member, easily log in now.</p>
-            
+
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <input
                 className="p-2 mt-8 rounded-xl border"
@@ -68,7 +74,7 @@ const Login = () => {
             </div>
             <div className="mt-4 text-sm flex justify-between items-center">
               <p className="mr-3 md:mr-0">If you don't have an account..</p>
-              <Link to='/register'>
+              <Link to="/register">
                 <button className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">
                   Register
                 </button>

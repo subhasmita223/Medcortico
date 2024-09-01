@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
       <div className="flex justify-between px-20 py-4 items-center">
-        <h1 className="text-xl text-gray-800 font-bold">HotCoffee</h1>
+        <h1 className="text-xl text-gray-800 font-bold">MedCortico</h1>
         <div className="flex items-center">
           <div className="flex items-center border border-gray-300 rounded-md">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 p-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
