@@ -14,6 +14,8 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (formDat
       });
       localStorage.setItem('token', response.data.token);
       return response.data;
+
+
     } catch (error) {
       if (error.response && error.response.data) {
         return rejectWithValue(error.response.data);
@@ -39,7 +41,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (userData, { r
     name: 'auth',
     initialState: {
       user: null,
-      token: token || null,
+      token: token?token:null,
       status: 'idle',
       error: null,
     },
@@ -47,6 +49,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (userData, { r
       logout: (state) => {
         state.user = null;
         state.token = null;
+        state.status='idle';
         localStorage.removeItem('token');
       },
       setUser: (state, action) => {

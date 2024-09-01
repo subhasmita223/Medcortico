@@ -84,6 +84,9 @@ const Sidebar = () => {
             
           </ul>
         )}
+        <li className="mb-4">
+          <Link to="/Profile" className="hover:text-blue-400">Appointment</Link>
+        </li>
         <li className="mt-4">
           <Link to="#" className="hover:text-blue-400">Settings</Link>
         </li>

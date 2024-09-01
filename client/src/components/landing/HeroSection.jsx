@@ -1,7 +1,21 @@
 import video1 from "../landing/assets/video4.mp4";
 import video2 from "../landing/assets/video6.mp4";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      
+      navigate('/dashboard');
+    } else {
+     
+      navigate('/login');
+    }
+  };
+
   return (
     <div className="flex flex-col items-center mt-6 lg:mt-20">
       <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide">
@@ -17,13 +31,10 @@ const HeroSection = () => {
       Stay ahead with smarter diagnostics and streamlined patient management—healthcare, redefined.
       </p>
       <div className="flex justify-center my-10">
-        <Link
-        to='/login'
-          href="#"
-          className="bg-gradient-to-r from-blue-400 to-violet-800 py-3 px-4 mx-3 rounded-md"
-        >
+        <button onClick={handleGetStarted}>
           Start for free
-        </Link>
+        
+        </button>
         <a href="#" className="py-3 px-4 mx-3 rounded-md border">
           Documentation
         </a>

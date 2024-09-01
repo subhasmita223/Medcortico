@@ -4,22 +4,19 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
 import LandingPage from './components/LandingPage';
-// import HeartDiseaseForm from './components/HeartDiseaseForm/HeartDiseaseForm';
-// import ParkinsonsDiseaseForm from './components/ParkinsonsDiseaseForm/ParkinsonsDiseaseForm';
-// import DiabetesDiseaseForm from './components/DiabetesDiseaseForm/DiabetesDiseaseForm';
+import HeartDiseaseForm from './components/HeartDiseaseForm';
+import ParkinsonsDiseaseForm from './components/ParkinsonsDiseaseForm';
+import DiabetesDiseaseForm from './components/DiabetesDiseaseForm';
+import Register from './components/register/Register';
 import Login from './components/login/Login'
 import "./App.css";
-import Register from './components/register/Register'
-import HeartDiseaseForm from './components/HeartDiseaseForm';
-import DiabetesDiseaseForm from './components/DiabetesDiseaseForm';
-import ParkinsonsDiseaseForm from './components/ParkinsonsDiseaseForm';
 
 const Layout = ({ children }) => {
   const location = useLocation();
   const isLandingPage = location.pathname === "/";
 
   return (
-    <div className={`flex w-full min-h-screen ${isLandingPage ? "w-full" : ""}`}>
+    <div className={`flex min-h-screen ${isLandingPage ? "w-full" : ""}`}>
       {!isLandingPage && <Sidebar />}
       <main
         className={`${
@@ -45,15 +42,15 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route
-            path="/HeartDiseaseForm"
+            path="/heart-disease-detection"
             element={<HeartDiseaseForm />}
           />
           <Route
-            path="/ParkinsonsDiseaseForm"
+            path="/parkinsons-disease-detection"
             element={<ParkinsonsDiseaseForm />}
           />
           <Route
-            path="/DiabetesDiseaseForm"
+            path="/diabetes-disease-detection"
             element={<DiabetesDiseaseForm />}
           />
         </Routes>
