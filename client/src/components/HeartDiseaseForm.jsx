@@ -87,7 +87,7 @@ const HeartDiseaseForm = () => {
 
         {result !== null && (
         <div className="mt-6 p-4 bg-gray-50 border border-gray-300 rounded-md">
-          <p className="text-lg font-semibold text-gray-700">Diabetes Prediction Result:</p>
+          <p className="text-lg font-semibold text-gray-700">Heart Prediction Result:</p>
           <p className="text-xl font-bold text-gray-800">{result}</p>
         </div>
       )}
