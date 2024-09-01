@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import CheckoutForm from './CheckoutForm';
 const AppointmentPage = () => {
   // Hardcoded appointment timings
   const availableTimings = [

@@ -10,7 +10,10 @@ import DiabetesDiseaseForm from './components/DiabetesDiseaseForm';
 import Register from './components/register/Register';
 import Login from './components/login/Login'
 import "./App.css";
+import DoctorProfile1 from './components/doctor-profile/DoctorProfile1';
+import DoctorProfile2 from './components/doctor-profile/DoctorProfile2';
 
+import AppointmentPage from './components/Appointment';
 const Layout = ({ children }) => {
   const location = useLocation();
   const isLandingPage = location.pathname === "/";
@@ -42,17 +45,20 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route
-            path="/heart-disease-detection"
+            path="/HeartDiseaseForm"
             element={<HeartDiseaseForm />}
           />
           <Route
-            path="/parkinsons-disease-detection"
+            path="/ParkinsonsDiseaseForm"
             element={<ParkinsonsDiseaseForm />}
           />
           <Route
-            path="/diabetes-disease-detection"
+            path="/DiabetesDiseaseForm"
             element={<DiabetesDiseaseForm />}
           />
+          <Route path='/doctor1' element={<DoctorProfile1/>}/>
+          <Route path='/doctor2' element={<DoctorProfile2/>}/>
+          <Route path='/book-appointment' element={<AppointmentPage/>}/>
         </Routes>
       </Layout>
     </Router>

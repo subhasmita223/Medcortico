@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Link } from "react-router-dom";
 
 const historicalDataDiabetes = [
     {
@@ -199,10 +200,16 @@ function Chatbot({ currentData }) {
               >
                 {message.text}
               </p>
+
             )}
           </div>
         ))}
+        <p>
+        <Link to='/doctor1'>Dr. Sarah Johnson</Link>
+        <Link to='/doctor2'>Dr. Aryan Patel</Link>
+        </p>
       </div>
+
     </div>
   );
 }
