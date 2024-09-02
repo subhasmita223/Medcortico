@@ -5,7 +5,7 @@ const token = localStorage.getItem('token');
 
 export const registerUser = createAsyncThunk('auth/registerUser', async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://https://localhost:4000/api/auth/register', formData, {
+      const response = await axios.post('http://https://https://techmakersihhh.vercel.app/api/auth/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           
