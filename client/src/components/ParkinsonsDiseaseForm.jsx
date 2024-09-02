@@ -43,7 +43,7 @@ const ParkinsonsDiseaseForm = () => {
     
     try {
       // Send data to Flask server
-      const response = await axios.post('http://techmakersihml.vercel.app/predict/parkinsons', formData);
+      const response = await axios.post('https://techmakersihml.vercel.app/api/predict/parkinsons', formData);
       console.log(response.data);
       setResult(response.data.prediction === 1 ? 'Parkinson’s Disease Detected' : 'No Parkinson’s Disease');
 
