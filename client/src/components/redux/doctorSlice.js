@@ -4,7 +4,7 @@ import axios from 'axios';
 // Thunk to handle doctor registration
 export const registerDoctor = createAsyncThunk('doctor/registerDoctor', async (formData, thunkAPI) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/doctors', formData, {
+      const response = await axios.post('http://https://techmakersihh.vercel.app/api/doctors', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
