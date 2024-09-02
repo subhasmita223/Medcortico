@@ -6,7 +6,7 @@ export const submitParkinsonDiseaseForm = createAsyncThunk(
   'parkinsonDisease/submitForm',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/parkinson-disease', formData);
+      const response = await axios.post('http://https://techmakersihh.vercel.app/api/parkinson-disease', formData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
