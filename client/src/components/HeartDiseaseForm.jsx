@@ -34,7 +34,7 @@ const HeartDiseaseForm = () => {
     try {
 
       // Send data to Flask server
-      const response = await axios.post('https://techmakersihml.vercel.app/api/predict/heart', formData);
+      const response = await axios.post('http://tech-ijqakzaov-vinayak-gargs-projects.vercel.app/api/predict/heart', formData);
       console.log('Flask response:', response.data);
       setResult(response.data.result === 1 ? 'Positive' : 'Negative');
 
