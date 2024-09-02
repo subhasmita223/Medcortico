@@ -82,7 +82,7 @@ const Sidebar = () => {
           <Link to="/Appointment" className="hover:text-blue-400">Appointment</Link>
         </li>
         <li className="mt-4">
-          <Link to="/payments" className="hover:text-blue-400">Payment</Link>
+          <Link to="/Payments" className="hover:text-blue-400">Payment</Link>
         </li>
         <li className="mt-4">
           <Link to="/Settings" className="hover:text-blue-400">Settings</Link>
