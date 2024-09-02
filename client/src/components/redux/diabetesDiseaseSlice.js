@@ -6,7 +6,7 @@ export const submitDiabetesDiseaseForm = createAsyncThunk(
   'diabetesDisease/submitForm',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/diabetes-disease', formData);
+      const response = await axios.post('http://https://techmakersihh.vercel.app/api/diabetes-disease', formData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
