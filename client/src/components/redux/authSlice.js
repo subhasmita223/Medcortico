@@ -29,7 +29,7 @@ export const registerUser = createAsyncThunk('auth/registerUser', async (formDat
 // Thunk for logging in a user
 export const loginUser = createAsyncThunk('auth/loginUser', async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('http://https://localhost:4000/api/auth/login', userData);
+      const response = await axios.post('http://https://https://techmakersihhh.vercel.app/api/auth/login', userData);
       localStorage.setItem('token', response.data.token);
       return response.data;
     } catch (error) {
