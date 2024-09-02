@@ -7,7 +7,7 @@ export const submitHeartDiseaseForm = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     const token = getState().auth.token;
     try {
-      const response = await axios.post('http://https://techmakersihh.vercel.app/api/heart-disease', formData,
+      const response = await axios.post('http://https://techmakersihhh.vercel.app/api/heart-disease', formData,
         {
             headers:{
                 'Content-Type': 'application/json',
