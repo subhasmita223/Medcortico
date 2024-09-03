@@ -31,7 +31,7 @@ const HeroSection = () => {
       Stay ahead with smarter diagnostics and streamlined patient management—healthcare, redefined.
       </p>
       <div className="flex justify-center my-10 ">
-        <button className='bg-sky-500 hover:bg-sky-700 text-white	' onClick={handleGetStarted}>
+        <button className='bg-sky-500 hover:bg-sky-700 text-white' onClick={handleGetStarted}>
           Start for free
         
         </button>
