@@ -30,7 +30,7 @@ const InputForm = () => {
     
     try {
       // Send data to Flask server
-      const response = await axios.post('http://localhost:5000/predict/diabetes', formData);
+      const response = await axios.post('https://tech-ijqakzaov-vinayak-gargs-projects.vercel.app/api/predict/diabetes', formData);
       console.log('Flask response:', response.data);
       setResult(response.data.result === 1 ? 'Positive' : 'Negative');
       
