@@ -30,12 +30,12 @@ const HeroSection = () => {
       From predictive analytics to real-time alerts, we turn data into actionable insights for personalized care.
       Stay ahead with smarter diagnostics and streamlined patient management—healthcare, redefined.
       </p>
-      <div className="flex justify-center my-10">
-        <button onClick={handleGetStarted}>
+      <div className="flex justify-center my-10 ">
+        <button className='bg-sky-500 hover:bg-sky-700 text-white	' onClick={handleGetStarted}>
           Start for free
         
         </button>
-        <a href="#" className="py-3 px-4 mx-3 rounded-md border">
+        <a href="#" className="py-3 px-4 mx-3 rounded-md border hover:bg-blue-300">
           Documentation
         </a>
       </div>
