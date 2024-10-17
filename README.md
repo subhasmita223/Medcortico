@@ -1,8 +1,6 @@
 # Techmakers
 SIH
-Here’s a comprehensive README file for your **MedCortico** project:
 
----
 
 # **MedCortico: AI-Assisted Healthcare Platform**
 
