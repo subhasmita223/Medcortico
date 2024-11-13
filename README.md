@@ -1,5 +1,5 @@
 # Techmakers
-SIH
+
 
 
 # **MedCortico: AI-Assisted Healthcare Platform**
